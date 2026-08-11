@@ -1,24 +1,58 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ShopProvider } from "@/lib/shop-store";
+import { AnnouncementBar, Navigation } from "@/components/site/Navigation";
+import { Hero } from "@/components/site/Hero";
+import { Collections } from "@/components/site/Collections";
+import { BestSellers } from "@/components/site/BestSellers";
+import { Editorial } from "@/components/site/Editorial";
+import { Discovery } from "@/components/site/Discovery";
+import { SignatureProduct } from "@/components/site/SignatureProduct";
+import { Trust } from "@/components/site/Trust";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Faq } from "@/components/site/Faq";
+import { Newsletter } from "@/components/site/Newsletter";
+import { Footer } from "@/components/site/Footer";
+import { CartDrawer } from "@/components/site/CartDrawer";
+import { SearchOverlay } from "@/components/site/SearchOverlay";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "Casa De Aroma — Authentic Luxury Fragrances";
+const DESCRIPTION =
+  "Curated oud, oriental, floral and niche perfumes, vetted at source and delivered worldwide. Discover your signature scent at Casa De Aroma.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <ShopProvider>
+      <AnnouncementBar />
+      <Navigation />
+      <main>
+        <Hero />
+        <Collections />
+        <BestSellers />
+        <Editorial />
+        <Discovery />
+        <SignatureProduct />
+        <Trust />
+        <Testimonials />
+        <Faq />
+        <Newsletter />
+      </main>
+      <Footer />
+      <CartDrawer />
+      <SearchOverlay />
+    </ShopProvider>
   );
 }
