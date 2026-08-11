@@ -4,6 +4,17 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ivory: var(--ivory);
+  --color-obsidian: var(--obsidian);
+  --color-charcoal: var(--charcoal);
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 /*
  * Design system definition.
  *
