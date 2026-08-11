@@ -7,7 +7,7 @@ import { Reveal } from "./Reveal";
 export function Testimonials() {
   const [i, setI] = useState(0);
   const [dir, setDir] = useState(1);
-  const t = TESTIMONIALS[i];
+  const t = TESTIMONIALS[i]!;
 
   const go = (d: number) => {
     setDir(d);

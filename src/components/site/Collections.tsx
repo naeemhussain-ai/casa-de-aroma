@@ -78,14 +78,14 @@ export function Collections() {
         <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-12 md:grid-rows-2 md:gap-5 lg:h-[720px]">
           <Tile
             index={0}
-            item={COLLECTIONS[0]}
+            item={COLLECTIONS[0]!}
             large
             className="min-h-[440px] md:col-span-7 md:row-span-2"
           />
-          <Tile index={1} item={COLLECTIONS[1]} className="min-h-[280px] md:col-span-5" />
+          <Tile index={1} item={COLLECTIONS[1]!} className="min-h-[280px] md:col-span-5" />
           <div className="grid gap-4 md:col-span-5 md:grid-cols-2 md:gap-5">
-            <Tile index={2} item={COLLECTIONS[2]} className="min-h-[280px]" />
-            <Tile index={3} item={COLLECTIONS[3]} className="min-h-[280px]" />
+            <Tile index={2} item={COLLECTIONS[2]!} className="min-h-[280px]" />
+            <Tile index={3} item={COLLECTIONS[3]!} className="min-h-[280px]" />
           </div>
         </div>
       </div>
