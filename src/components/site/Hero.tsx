@@ -15,7 +15,6 @@ export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <section ref={ref} id="top" className="relative grain min-h-[100svh] overflow-hidden">
@@ -32,8 +31,7 @@ export function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-64 veil" />
       </motion.div>
 
-      <motion.div
-        style={{ opacity }}
+      <div
         className="relative mx-auto flex min-h-[100svh] max-w-[1500px] flex-col justify-end px-5 pt-28 pb-24 sm:px-8 lg:pb-32"
       >
         <div className="max-w-3xl">
@@ -101,13 +99,12 @@ export function Hero() {
             </a>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 1 }}
-        style={{ opacity }}
         className="absolute right-6 bottom-8 hidden flex-col items-center gap-4 sm:right-10 md:flex"
       >
         <span className="text-[9px] tracking-[0.35em] [writing-mode:vertical-rl] text-muted-foreground uppercase">
