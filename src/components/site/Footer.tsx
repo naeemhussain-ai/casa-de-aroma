@@ -25,9 +25,9 @@ export function Footer() {
             <a href="#top" className="inline-flex items-center">
               <img src={logoSrc} alt="Casa De Aroma" className="h-18 w-auto object-contain sm:h-20" />
             </a>
-            <p className="mt-2 text-[9px] tracking-[0.4em] text-gold/80 uppercase">
+            {/* <p className="mt-2 text-[9px] tracking-[0.4em] text-gold/80 uppercase">
               Authentic Luxury Delivered
-            </p>
+            </p> */}
             <p className="mt-7 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Authentic luxury fragrances, delivered worldwide - oud, oriental, floral and niche,
               in one house you can trust.
