@@ -62,9 +62,7 @@ export function Navigation() {
         }`}
       >
         <div
-          className={`mx-auto flex max-w-[1500px] items-center justify-between px-5 transition-all duration-700 sm:px-8 ${
-            scrolled ? "h-20" : "h-32"
-          }`}
+          className="mx-auto flex h-32 max-w-[1500px] items-center justify-between px-5 transition-all duration-700 sm:px-8"
         >
           <button
             onClick={() => setMenu(true)}
@@ -78,9 +76,7 @@ export function Navigation() {
             <img
               src={logoSrc}
               alt="Casa De Aroma"
-              className={`object-contain transition-all duration-700 ${
-                scrolled ? "h-14" : "h-20 sm:h-24"
-              }`}
+              className="h-20 object-contain transition-all duration-700 sm:h-24"
             />
           </a>
 

@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import logoSrc from "@/assets/casa-de-aroma-logo.png";
 
 const COLUMNS = [
   { title: "Shop", links: ["All Products", "New Arrivals", "Trending Now", "Gift Sets"] },
@@ -21,9 +22,9 @@ export function Footer() {
       <div className="mx-auto max-w-[1500px] px-5 sm:px-8">
         <div className="luxe-panel grid grid-cols-2 gap-10 border-b border-border/60 p-8 pb-10 lg:grid-cols-6 lg:p-10">
           <div className="col-span-2">
-            <p className="bg-gradient-to-r from-ivory via-gold-soft to-gold bg-clip-text font-display text-2xl font-light tracking-[0.2em] text-transparent">
-              CASA DE AROMA
-            </p>
+            <a href="#top" className="inline-flex items-center">
+              <img src={logoSrc} alt="Casa De Aroma" className="h-18 w-auto object-contain sm:h-20" />
+            </a>
             <p className="mt-2 text-[9px] tracking-[0.4em] text-gold/80 uppercase">
               Authentic Luxury Delivered
             </p>

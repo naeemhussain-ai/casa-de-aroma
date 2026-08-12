@@ -35,7 +35,7 @@ export function Hero() {
 
       <div className="pointer-events-none absolute inset-x-5 top-24 bottom-8 border border-gold/10 sm:inset-x-8" />
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-[1500px] flex-col justify-center px-5 pt-28 pb-8 sm:px-8 lg:pb-8">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-[1500px] flex-col justify-start px-5 pt-32 pb-8 sm:px-8 lg:pt-36">
         <div className="max-w-4xl">
           <motion.div custom={0} variants={rise} initial="hidden" animate="show">
             <span className="eyebrow">Maison Casa De Aroma - Est. Houston</span>
