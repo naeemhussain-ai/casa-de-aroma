@@ -1,7 +1,8 @@
-import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
-import { Menu, Search, ShoppingBag, X, Heart } from "lucide-react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
+import { Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import { useShop } from "@/lib/shop-store";
+import logoSrc from "@/assets/casa-de-aroma-logo.png";
 
 const LINKS = [
   { label: "Collections", href: "#collections" },
@@ -14,21 +15,22 @@ const LINKS = [
 export function AnnouncementBar() {
   const items = [
     "Complimentary tracked delivery on orders over $50",
-    "100% authentic — vetted at source",
+    "100% authentic - vetted at source",
     "Welcome code WELCOME10 for 10% off your first order",
     "Lacquered gift packaging on every order",
   ];
+
   return (
-    <div className="relative z-50 overflow-hidden border-b border-border/60 bg-charcoal">
+    <div className="relative z-50 overflow-hidden border-b border-gold/10 bg-[linear-gradient(90deg,oklch(0.18_0.018_80),oklch(0.22_0.03_82),oklch(0.18_0.018_80))]">
       <div className="flex w-max animate-marquee">
         {[0, 1].map((k) => (
           <div key={k} className="flex shrink-0">
-            {items.map((t) => (
+            {items.map((text) => (
               <span
-                key={t}
-                className="flex items-center gap-6 px-8 py-2.5 text-[10px] tracking-[0.28em] whitespace-nowrap text-muted-foreground uppercase"
+                key={text}
+                className="flex items-center gap-6 px-8 py-2.5 text-[10px] tracking-[0.28em] whitespace-nowrap text-gold-soft/75 uppercase"
               >
-                {t}
+                {text}
                 <span className="h-1 w-1 rotate-45 bg-gold/70" />
               </span>
             ))}
@@ -45,7 +47,7 @@ export function Navigation() {
   const [menu, setMenu] = useState(false);
   const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 40));
+  useMotionValueEvent(scrollY, "change", (value) => setScrolled(value > 40));
 
   return (
     <>
@@ -55,44 +57,41 @@ export function Navigation() {
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
         className={`sticky top-0 z-40 w-full transition-all duration-700 ${
           scrolled
-            ? "border-b border-border/70 bg-obsidian/85 backdrop-blur-xl"
+            ? "border-b border-gold/10 bg-obsidian/82 shadow-[0_18px_60px_-30px_oklch(0_0_0_/_0.9)] backdrop-blur-xl"
             : "border-b border-transparent bg-transparent"
         }`}
       >
         <div
           className={`mx-auto flex max-w-[1500px] items-center justify-between px-5 transition-all duration-700 sm:px-8 ${
-            scrolled ? "h-16" : "h-24"
+            scrolled ? "h-20" : "h-32"
           }`}
         >
           <button
             onClick={() => setMenu(true)}
             aria-label="Open menu"
-            className="-ml-2 p-2 text-foreground/80 transition-colors hover:text-gold lg:hidden"
+            className="-ml-2 p-2 text-ivory transition-colors hover:text-gold lg:hidden"
           >
             <Menu className="h-5 w-5" strokeWidth={1.2} />
           </button>
 
-          <a href="#top" className="group flex flex-col items-center lg:items-start">
-            <span
-              className={`font-display leading-none font-light tracking-[0.22em] transition-all duration-700 ${
-                scrolled ? "text-lg" : "text-xl sm:text-2xl"
+          <a href="#top" className="group flex items-center">
+            <img
+              src={logoSrc}
+              alt="Casa De Aroma"
+              className={`object-contain transition-all duration-700 ${
+                scrolled ? "h-14" : "h-20 sm:h-24"
               }`}
-            >
-              CASA DE AROMA
-            </span>
-            <span className="mt-1 hidden text-[9px] tracking-[0.4em] text-gold/80 uppercase sm:block">
-              Authentic Luxury
-            </span>
+            />
           </a>
 
           <nav className="hidden items-center gap-10 lg:flex">
-            {LINKS.map((l) => (
+            {LINKS.map((link) => (
               <a
-                key={l.href}
-                href={l.href}
-                className="group relative text-[11px] tracking-[0.22em] text-foreground/70 uppercase transition-colors hover:text-foreground"
+                key={link.href}
+                href={link.href}
+                className="group relative text-[11px] tracking-[0.22em] text-ivory uppercase transition-colors hover:text-gold-soft"
               >
-                {l.label}
+                {link.label}
                 <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gold transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
               </a>
             ))}
@@ -102,13 +101,13 @@ export function Navigation() {
             <button
               onClick={() => setSearchOpen(true)}
               aria-label="Search fragrances"
-              className="p-2 text-foreground/80 transition-colors hover:text-gold"
+              className="p-2 text-ivory transition-colors hover:text-gold"
             >
               <Search className="h-[18px] w-[18px]" strokeWidth={1.2} />
             </button>
             <button
               aria-label="Wishlist"
-              className="relative hidden p-2 text-foreground/80 transition-colors hover:text-gold sm:block"
+              className="relative hidden p-2 text-ivory transition-colors hover:text-gold sm:block"
             >
               <Heart className="h-[18px] w-[18px]" strokeWidth={1.2} />
               {wishlist.length > 0 && (
@@ -118,7 +117,7 @@ export function Navigation() {
             <button
               onClick={() => setCartOpen(true)}
               aria-label="Open cart"
-              className="relative p-2 text-foreground/80 transition-colors hover:text-gold"
+              className="relative p-2 text-ivory transition-colors hover:text-gold"
             >
               <ShoppingBag className="h-[18px] w-[18px]" strokeWidth={1.2} />
               <AnimatePresence>
@@ -144,26 +143,30 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-obsidian lg:hidden"
+            className="fixed inset-0 z-[60] bg-[radial-gradient(circle_at_top,oklch(0.32_0.06_80_/_0.16),transparent_30%),linear-gradient(180deg,oklch(0.16_0.02_80),oklch(0.1_0.006_80))] lg:hidden"
           >
-            <div className="flex h-20 items-center justify-between px-6">
-              <span className="font-display text-lg tracking-[0.22em]">MENU</span>
+            <div className="flex h-20 items-center justify-between border-b border-gold/10 px-6">
+              <span className="font-display text-lg tracking-[0.22em] text-ivory">MENU</span>
               <button onClick={() => setMenu(false)} aria-label="Close menu" className="p-2">
                 <X className="h-5 w-5" strokeWidth={1.2} />
               </button>
             </div>
             <nav className="mt-8 flex flex-col px-6">
-              {LINKS.map((l, i) => (
+              {LINKS.map((link, index) => (
                 <motion.a
-                  key={l.href}
-                  href={l.href}
+                  key={link.href}
+                  href={link.href}
                   onClick={() => setMenu(false)}
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 * i + 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                  className="border-b border-border/60 py-6 font-display text-3xl font-light"
+                  transition={{
+                    delay: 0.08 * index + 0.1,
+                    duration: 0.7,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="border-b border-gold/10 py-6 font-display text-3xl font-light text-ivory"
                 >
-                  {l.label}
+                  {link.label}
                 </motion.a>
               ))}
             </nav>
@@ -171,7 +174,7 @@ export function Navigation() {
               <a
                 href="#bestsellers"
                 onClick={() => setMenu(false)}
-                className="block border border-gold/50 py-4 text-center text-[11px] tracking-[0.28em] text-gold uppercase"
+                className="block border border-gold/50 bg-gold/8 py-4 text-center text-[11px] tracking-[0.28em] text-gold uppercase backdrop-blur-sm"
               >
                 Shop the collection
               </a>

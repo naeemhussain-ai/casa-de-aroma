@@ -15,7 +15,7 @@ import { Footer } from "@/components/site/Footer";
 import { CartDrawer } from "@/components/site/CartDrawer";
 import { SearchOverlay } from "@/components/site/SearchOverlay";
 
-const TITLE = "Casa De Aroma — Authentic Luxury Fragrances";
+const TITLE = "Casa De Aroma - Authentic Luxury Fragrances";
 const DESCRIPTION =
   "Curated oud, oriental, floral and niche perfumes, vetted at source and delivered worldwide. Discover your signature scent at Casa De Aroma.";
 
@@ -36,7 +36,6 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <ShopProvider>
-      <AnnouncementBar />
       <Navigation />
       <main>
         <Hero />

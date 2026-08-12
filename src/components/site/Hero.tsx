@@ -26,48 +26,74 @@ export function Hero() {
           height={1104}
           className="h-[115%] w-full animate-lux-drift object-cover object-center"
         />
-        <div className="absolute inset-0 bg-obsidian/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/70 to-transparent" />
+        <div className="absolute inset-0 bg-obsidian/52" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,oklch(0.72_0.09_82_/_0.2),transparent_22%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/76 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-obsidian/18" />
         <div className="absolute inset-x-0 bottom-0 h-64 veil" />
       </motion.div>
 
-      <div
-        className="relative mx-auto flex min-h-[100svh] max-w-[1500px] flex-col justify-end px-5 pt-28 pb-24 sm:px-8 lg:pb-32"
-      >
-        <div className="max-w-3xl">
+      <div className="pointer-events-none absolute inset-x-5 top-24 bottom-8 border border-gold/10 sm:inset-x-8" />
+
+      <div className="relative mx-auto flex min-h-[100svh] max-w-[1500px] flex-col justify-center px-5 pt-28 pb-8 sm:px-8 lg:pb-8">
+        <div className="max-w-4xl">
           <motion.div custom={0} variants={rise} initial="hidden" animate="show">
-            <span className="eyebrow">Maison Casa De Aroma — Est. Houston</span>
+            <span className="eyebrow">Maison Casa De Aroma - Est. Houston</span>
           </motion.div>
 
-          <motion.h1
+          <motion.div
             custom={1}
             variants={rise}
             initial="hidden"
             animate="show"
-            className="mt-6 font-display text-[clamp(3.2rem,11vw,9.5rem)] leading-[0.85] font-light tracking-[-0.02em]"
+            className="mt-6 max-w-3xl"
           >
-            SCENT,
-            <span className="block pl-[0.12em] text-gold-soft italic">refined.</span>
-          </motion.h1>
+            <h1 className="font-display text-[clamp(3.2rem,11vw,9.5rem)] leading-[0.85] font-light tracking-[-0.02em]">
+              SCENT,
+              <span className="block bg-gradient-to-r from-gold-soft via-gold to-gold-soft bg-clip-text pl-[0.12em] text-transparent italic">
+                refined.
+              </span>
+            </h1>
+          </motion.div>
 
           <motion.div
             custom={2}
             variants={rise}
             initial="hidden"
             animate="show"
-            className="mt-10 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between"
+            className="mt-10 flex flex-col gap-8 xl:flex-row xl:items-end xl:justify-between"
           >
-            <p className="max-w-sm text-sm leading-relaxed text-foreground/70 sm:text-base">
-              Exceptional fragrances curated for those who leave an impression.
-            </p>
-            <div className="hidden items-center gap-8 text-right lg:flex">
+            <div className="luxe-panel gold-glow max-w-xl p-6 sm:p-8">
+              <p className="max-w-md text-sm leading-relaxed text-foreground/78 sm:text-base">
+                Exceptional fragrances curated for those who leave an impression. Built on a
+                darker, richer stage so every bottle feels worthy of the spotlight.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4">
+                {[
+                  ["Rare", "Curated selections"],
+                  ["Gold", "Gift-ready finishing"],
+                  ["Trusted", "Authenticity guaranteed"],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <div className="text-[10px] tracking-[0.28em] text-gold uppercase">
+                      {label}
+                    </div>
+                    <div className="mt-2 text-sm text-foreground/66">{value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid max-w-sm grid-cols-3 gap-4 text-right">
               {[
                 ["8,000+", "Clients"],
                 ["200+", "Fragrances"],
                 ["4.8", "Rating"],
               ].map(([n, l]) => (
-                <div key={l}>
-                  <div className="font-display text-3xl font-light">{n}</div>
+                <div key={l} className="luxe-panel px-4 py-5">
+                  <div className="font-display text-2xl font-light text-gold-soft sm:text-3xl">
+                    {n}
+                  </div>
                   <div className="mt-1 text-[10px] tracking-[0.28em] text-muted-foreground uppercase">
                     {l}
                   </div>
@@ -85,7 +111,7 @@ export function Hero() {
           >
             <a
               href="#collections"
-              className="group relative overflow-hidden border border-gold/60 px-9 py-4 text-center text-[11px] tracking-[0.28em] text-gold uppercase transition-colors duration-500 hover:text-obsidian"
+              className="group gold-glow relative overflow-hidden border border-gold/60 bg-gold/8 px-9 py-4 text-center text-[11px] tracking-[0.28em] text-gold uppercase transition-colors duration-500 hover:text-obsidian"
             >
               <span className="relative z-10">Explore the collection</span>
               <span className="absolute inset-0 -translate-y-full bg-gold transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0" />

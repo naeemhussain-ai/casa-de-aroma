@@ -21,7 +21,7 @@ function Tile({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-70px" }}
       transition={{ duration: 1, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative block overflow-hidden border border-border/70 bg-charcoal ${className ?? ""}`}
+      className={`group luxe-panel gold-glow relative block overflow-hidden ${className ?? ""}`}
     >
       <img
         src={item.image}
@@ -29,7 +29,8 @@ function Tile({
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.07]"
       />
-      <div className="absolute inset-0 bg-obsidian/35 transition-colors duration-700 group-hover:bg-obsidian/20" />
+      <div className="absolute inset-0 bg-obsidian/42 transition-colors duration-700 group-hover:bg-obsidian/24" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,oklch(0.72_0.08_82_/_0.14),transparent_30%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
       <div className="absolute inset-x-0 bottom-0 h-2/3 veil" />
       <div className="relative flex h-full flex-col justify-end p-6 sm:p-8">
         <span className="text-[10px] tracking-[0.28em] text-gold uppercase">{item.count}</span>
@@ -55,7 +56,7 @@ function Tile({
 
 export function Collections() {
   return (
-    <section id="collections" className="relative border-t border-border/60 py-24 sm:py-32">
+    <section id="collections" className="section-shell relative border-t border-border/60 py-24 sm:py-32">
       <div className="mx-auto max-w-[1500px] px-5 sm:px-8">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading

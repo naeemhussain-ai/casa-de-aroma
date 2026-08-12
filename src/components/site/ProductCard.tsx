@@ -27,7 +27,7 @@ export function ProductCard({
       animate={{ opacity: dimmed ? 0.25 : 1, filter: dimmed ? "grayscale(1)" : "grayscale(0)" }}
       className="group relative flex flex-col"
     >
-      <div className="relative aspect-[4/5] overflow-hidden border border-border/70 bg-charcoal">
+      <div className="luxe-panel relative aspect-[4/5] overflow-hidden">
         <img
           src={product.image}
           alt={`${product.brand} ${product.name}`}
@@ -43,17 +43,18 @@ export function ProductCard({
           loading="lazy"
           className="absolute inset-0 h-full w-full scale-110 object-cover opacity-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:opacity-100"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-obsidian/70 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,oklch(0.72_0.08_82_/_0.16),transparent_26%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
 
         <div className="absolute top-4 left-4 flex flex-col gap-2">
           {product.tag && (
-            <span className="bg-obsidian/70 px-3 py-1 text-[9px] tracking-[0.24em] text-gold uppercase backdrop-blur-sm">
+            <span className="bg-obsidian/75 px-3 py-1 text-[9px] tracking-[0.24em] text-gold uppercase backdrop-blur-sm">
               {product.tag}
             </span>
           )}
           {off > 0 && (
             <span className="bg-gold px-3 py-1 text-[9px] tracking-[0.24em] text-obsidian uppercase">
-              −{off}%
+              -{off}%
             </span>
           )}
         </div>
@@ -61,7 +62,7 @@ export function ProductCard({
         <button
           onClick={() => toggleWish(product.id)}
           aria-label={wished ? "Remove from wishlist" : "Add to wishlist"}
-          className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center border border-border/70 bg-obsidian/60 backdrop-blur-sm transition-colors hover:border-gold/60"
+          className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center border border-gold/14 bg-obsidian/65 backdrop-blur-sm transition-colors hover:border-gold/60"
         >
           <Heart
             className={`h-4 w-4 transition-colors ${wished ? "fill-gold text-gold" : "text-foreground/70"}`}
@@ -104,7 +105,7 @@ export function ProductCard({
         </div>
 
         <div className="mt-auto flex items-baseline gap-3 pt-4">
-          <span className="font-display text-lg">{money(product.price)}</span>
+          <span className="font-display text-lg text-gold-soft">{money(product.price)}</span>
           {product.compareAt && (
             <span className="text-xs text-muted-foreground line-through">
               {money(product.compareAt)}

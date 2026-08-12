@@ -10,7 +10,7 @@ export function BestSellers() {
   const list = tab === "All" ? PRODUCTS : PRODUCTS.filter((p) => p.category === tab);
 
   return (
-    <section id="bestsellers" className="relative border-t border-border/60 py-24 sm:py-32">
+    <section id="bestsellers" className="section-shell relative border-t border-border/60 py-24 sm:py-32">
       <div className="mx-auto max-w-[1500px] px-5 sm:px-8">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
@@ -23,7 +23,7 @@ export function BestSellers() {
             }
           />
           <Reveal delay={0.15}>
-            <div className="flex flex-wrap gap-x-7 gap-y-3">
+            <div className="luxe-panel flex flex-wrap gap-x-7 gap-y-3 p-4 sm:p-5">
               {TABS.map((t) => (
                 <button
                   key={t}
